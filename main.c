@@ -73,3 +73,24 @@ void compute_histogram(const GrayImage *g, int hist[256], double *mean, double *
     if (variance < 0) variance = 0;
     *std = sqrt(variance);
 }
+
+GrayImage *equalize_histogram(const GrayImage *g) {
+    int hist[256]; double mean, std;
+    compute_histogram(g, hist, &mean, &std);
+    int n = g->w * g->h;
+    int cdf[256];
+    cdf[0] = hist[0];
+    for (int i = 1; i < 256; i++) cdf[i] = cdf[i-1] + hist[i];
+    int cdf_min = 0; for (int i = 0; i < 256; i++) if (cdf[i]>0) { cdf_min = cdf[i]; break; }
+
+    GrayImage *out = malloc(sizeof(GrayImage));
+    out->w = g->w; out->h = g->h;
+    out->pixels = malloc((size_t)out->w * out->h);
+    for (int i = 0; i < n; i++) {
+        int v = g->pixels[i];
+        double mapped = round((double)(cdf[v]-cdf_min) / (n-cdf_min) * 255.0);
+        if (mapped < 0) mapped = 0; if (mapped > 255) mapped = 255;
+        out->pixels[i] = (Uint8)mapped;
+    }
+    return out;
+}
