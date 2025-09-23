@@ -81,3 +81,6 @@ Execução:
   - Exibe classificações (intensidade e contraste).
 
 ---
+
+##  Observação
+  Para execução do código main era necessário os arquivos no diretório do código main: SDL3.dll SDL3_image.dll SDL3_ttf.dll e o arial.ttf para fazer as legendas funcionarem. 
