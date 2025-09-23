@@ -84,3 +84,10 @@ Execução:
 
 ##  Observação
   Para execução do código main era necessário os arquivos no diretório do código main: SDL3.dll SDL3_image.dll SDL3_ttf.dll e o arial.ttf para fazer as legendas funcionarem. 
+
+---
+
+## Print da execução
+
+<img width="1404" height="863" alt="image" src="https://github.com/user-attachments/assets/e1adb196-1bb6-4d26-8e17-63887fe7829c" />
+
