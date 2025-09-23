@@ -222,7 +222,8 @@ int main(int argc, char **argv) {
                 mouse_down_button = false;
             }
         }
-
+        
+        //salva a imagem quando aperta s
         const bool *kb = SDL_GetKeyboardState(NULL);
         if (kb[SDL_SCANCODE_ESCAPE]) running = false;
         if (kb[SDL_SCANCODE_S]) { save_gray_png(current, "output_image.png"); SDL_Delay(200); }
@@ -310,5 +311,6 @@ int main(int argc, char **argv) {
     SDL_Quit();
     return 0;
 }
+
 
 
