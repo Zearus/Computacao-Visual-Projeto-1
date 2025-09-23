@@ -1,8 +1,10 @@
 # Projeto 1 – Processamento de Imagens (Computação Visual)
 
 ## Autores: 
-  João Victor Dallapé Madeira RA: 10400725
   André Franco Raineri RA: 10390470
+  Francesco Z Coppola Ra: 10403340
+  João Victor Dallapé Madeira RA: 10400725
+  
 
 ##  Objetivos do projeto
 
