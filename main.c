@@ -56,3 +56,20 @@ GrayImage *load_and_convert_to_gray(const char *path) {
     SDL_DestroySurface(conv);
     return g;
 }
+
+// Histograma + estatísticas
+void compute_histogram(const GrayImage *g, int hist[256], double *mean, double *std) {
+    memset(hist, 0, sizeof(int)*256);
+    long long sum = 0, sumsq = 0;
+    int n = g->w * g->h;
+    for (int i = 0; i < n; i++) {
+        int v = g->pixels[i];
+        hist[v]++;
+        sum += v;
+        sumsq += (long long)v * v;
+    }
+    *mean = (double)sum / n;
+    double variance = (double)sumsq / n - (*mean)*(*mean);
+    if (variance < 0) variance = 0;
+    *std = sqrt(variance);
+}
