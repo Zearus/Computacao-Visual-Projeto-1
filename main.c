@@ -94,3 +94,35 @@ GrayImage *equalize_histogram(const GrayImage *g) {
     }
     return out;
 }
+
+// Salvar PNG
+bool save_gray_png(const GrayImage *g, const char *filename) {
+    int w = g->w, h = g->h;
+    Uint8 *buf = malloc((size_t)w*h*3); // corrigido para RGB24
+    if (!buf) return false;
+
+    for (int i = 0; i < w*h; i++) {
+        Uint8 v = g->pixels[i];
+        buf[i*3 + 0] = v;
+        buf[i*3 + 1] = v;
+        buf[i*3 + 2] = v;
+    }
+
+    SDL_Surface *surf = SDL_CreateSurfaceFrom(w, h, SDL_PIXELFORMAT_RGB24, buf, w*3);
+    if (!surf) {
+        fprintf(stderr,"SDL_CreateSurfaceFrom falhou: %s\n", SDL_GetError());
+        free(buf);
+        return false;
+    }
+
+    if (!IMG_SavePNG(surf, filename)) {
+        fprintf(stderr,"IMG_SavePNG falhou: %s\n", SDL_GetError());
+        SDL_DestroySurface(surf);
+        free(buf);
+        return false;
+    }
+
+    SDL_DestroySurface(surf);
+    free(buf);
+    return true;
+}
