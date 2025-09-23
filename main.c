@@ -1,5 +1,6 @@
 //Nome: Francesco Zangrandi Coppola RA: 10403340
 //Nome: João Victor Dallapé Madeira RA: 10400725
+//Nome: André Franco Raineri RA: 10390470
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -311,6 +312,7 @@ int main(int argc, char **argv) {
     SDL_Quit();
     return 0;
 }
+
 
 
 
