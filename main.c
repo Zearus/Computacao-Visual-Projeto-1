@@ -1,3 +1,5 @@
+//Nome: João Victor Dallapé Madeira RA: 10400725
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -307,3 +309,4 @@ int main(int argc, char **argv) {
     SDL_Quit();
     return 0;
 }
+
