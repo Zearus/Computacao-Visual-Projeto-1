@@ -2,6 +2,7 @@
 
 ## Autores: 
   João Victor Dallapé Madeira RA: 10400725
+  André Franco Raineri RA: 10390470
 
 ##  Objetivos do projeto
 
